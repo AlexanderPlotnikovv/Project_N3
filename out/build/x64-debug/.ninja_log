@@ -1,0 +1,9 @@
+# ninja log v5
+2	858	7151113923865596	Project N3/CMakeFiles/CMakeTarget.dir/main.cpp.obj	404c643913a791e8
+5	865	7151113923928362	Project N3/CMakeFiles/CMakeTarget.dir/Parser.cpp.obj	351be60f3ac386e0
+865	1066	7151113925812393	Project N3/CMakeTarget.exe	af3529876c861f7c
+1	435	7151114776487215	Project N3/CMakeFiles/CMakeTarget.dir/main.cpp.obj	404c643913a791e8
+3	447	7151114776604473	Project N3/CMakeFiles/CMakeTarget.dir/Parser.cpp.obj	351be60f3ac386e0
+447	560	7151114777500103	Project N3/CMakeTarget.exe	af3529876c861f7c
+0	416	7151114877588890	Project N3/CMakeFiles/CMakeTarget.dir/main.cpp.obj	404c643913a791e8
+417	509	7151114878317291	Project N3/CMakeTarget.exe	af3529876c861f7c
