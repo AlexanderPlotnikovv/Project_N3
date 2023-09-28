@@ -1,8 +1,10 @@
-﻿#include "Parser.h"
+﻿#include <iostream>
+#include "Parser.h"
 
 int main()
 {
-	std::vector<std::pair<std::string, std::string>> vec_pairs;
-	vec_pairs[0].first = "rgrgrgrg";
+	INI_Parser parser("filename.txt");
+	//auto value = parser.get_value<std::string>(4);
+	//std::cout << value;
 	return 0;
 }

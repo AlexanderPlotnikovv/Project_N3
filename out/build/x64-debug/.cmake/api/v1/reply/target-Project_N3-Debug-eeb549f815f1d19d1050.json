@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Project N3/CMakeTarget.exe"
+			"path" : "Project N3/Project_N3.exe"
 		},
 		{
-			"path" : "Project N3/CMakeTarget.pdb"
+			"path" : "Project N3/Project_N3.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -13,8 +13,7 @@
 	{
 		"commands" : 
 		[
-			"add_executable",
-			"set_property"
+			"add_executable"
 		],
 		"files" : 
 		[
@@ -28,13 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 6,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 9,
+				"line" : 3,
 				"parent" : 0
 			}
 		]
@@ -45,26 +38,18 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -std:c++20 -ZI"
+					"fragment" : "/DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Ob0 /Od /RTC1 -ZI"
 				}
 			],
 			"language" : "CXX",
-			"languageStandard" : 
-			{
-				"backtraces" : 
-				[
-					2
-				],
-				"standard" : "20"
-			},
 			"sourceIndexes" : 
 			[
 				0,
-				1
+				2
 			]
 		}
 	],
-	"id" : "CMakeTarget::@86e99737a5a34ed6db75",
+	"id" : "Project_N3::@86e99737a5a34ed6db75",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -84,8 +69,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "CMakeTarget",
-	"nameOnDisk" : "CMakeTarget.exe",
+	"name" : "Project_N3",
+	"nameOnDisk" : "Project_N3.exe",
 	"paths" : 
 	{
 		"build" : "Project N3",
@@ -98,6 +83,13 @@
 			"sourceIndexes" : 
 			[
 				0,
+				2
+			]
+		},
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
 				1
 			]
 		},
@@ -105,7 +97,7 @@
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				2
+				3
 			]
 		}
 	],
@@ -119,6 +111,11 @@
 		},
 		{
 			"backtrace" : 1,
+			"path" : "Project N3/filename.txt",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "Project N3/Parser.cpp",
 			"sourceGroupIndex" : 0
@@ -126,7 +123,7 @@
 		{
 			"backtrace" : 1,
 			"path" : "Project N3/Parser.h",
-			"sourceGroupIndex" : 1
+			"sourceGroupIndex" : 2
 		}
 	],
 	"type" : "EXECUTABLE"

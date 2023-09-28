@@ -23,10 +23,10 @@
 					"jsonFile" : "directory-Project N3-Debug-511c311c55e480407505.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.8"
+						"string" : "3.22.0"
 					},
 					"parentIndex" : 0,
-					"projectIndex" : 0,
+					"projectIndex" : 1,
 					"source" : "Project N3",
 					"targetIndexes" : 
 					[
@@ -38,12 +38,23 @@
 			"projects" : 
 			[
 				{
-					"directoryIndexes" : 
+					"childIndexes" : 
 					[
-						0,
 						1
 					],
-					"name" : "Project N3",
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Project N3"
+				},
+				{
+					"directoryIndexes" : 
+					[
+						1
+					],
+					"name" : "Project_N3",
+					"parentIndex" : 0,
 					"targetIndexes" : 
 					[
 						0
@@ -54,10 +65,10 @@
 			[
 				{
 					"directoryIndex" : 1,
-					"id" : "CMakeTarget::@86e99737a5a34ed6db75",
-					"jsonFile" : "target-CMakeTarget-Debug-8f8d1368e40c1a847f90.json",
-					"name" : "CMakeTarget",
-					"projectIndex" : 0
+					"id" : "Project_N3::@86e99737a5a34ed6db75",
+					"jsonFile" : "target-Project_N3-Debug-eeb549f815f1d19d1050.json",
+					"name" : "Project_N3",
+					"projectIndex" : 1
 				}
 			]
 		}

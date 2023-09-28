@@ -204,6 +204,15 @@ Project N3_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 Project N3_SOURCE_DIR:STATIC=C:/Users/Apppl/source/repos/Project N3
 
+//Value Computed by CMake
+Project_N3_BINARY_DIR:STATIC=C:/Users/Apppl/source/repos/Project N3/out/build/x64-debug/Project N3
+
+//Value Computed by CMake
+Project_N3_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+Project_N3_SOURCE_DIR:STATIC=C:/Users/Apppl/source/repos/Project N3/Project N3
+
 
 ########################
 # INTERNAL cache entries
