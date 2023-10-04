@@ -1,23 +1,5 @@
 #include "Parser.h"
 
-const std::type_info& is_T(const std::string& s) {
-	try {
-		std::stoi(s);
-	}
-	catch (const std::invalid_argument&) {
-		try
-		{
-			std::stod(s);
-		}
-		catch (const std::invalid_argument&) {
-
-		}
-	}
-	return typeid(s);
-}
-
-
-
 std::string INI_Parser::trim(std::string str, int i, int j)
 {
 	std::string strhelp = "";
@@ -35,12 +17,25 @@ void INI_Parser::cut_out(std::string& str)
 {
 	std::string strhelp = "";
 	int i = 0;
-	while (str[i] != ';')
+	while (str[i] != ';' && i < str.size())
 	{
 		strhelp += str[i];
 		++i;
 	}
 	str = strhelp;
+}
+
+int INI_Parser::section_in(std::string str)
+{
+	std::string strhelp = "";
+	for (int i = 0; i < str.size(); ++i)
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+		{
+			strhelp += str[i];
+		}
+	}
+	return std::stoi(strhelp);
 }
 
 INI_Parser::INI_Parser(std::string file)
@@ -56,28 +51,27 @@ INI_Parser::INI_Parser(std::string file)
 		answers.resize(100, std::vector<std::pair<std::string, std::string>>(100));
 		std::string line;
 		int section;
-		std::string num;
 		while (std::getline(File, line))
 		{
 			text.push_back(line);
 		}
 		File.close();
+		/*for (auto elem : text) {
+			for (auto txt : elem)
+			{
+				std::cout << txt;
+			}
+			std::cout << std::endl;
+		}*/
 		for (int i = 0; i < text.size(); ++i)
 		{
 			cut_out(text[i]);
 			if (text[i][0] == '[')
 			{
-				for (int j = 0; j < text[i].size(); ++i)
-				{
-					if (text[i][j] >= '0' && text[i][j] <= '9')
-					{
-						num += text[i][j];
-					}
-				}
+				section = section_in(text[i]);
 			}
 			else
 			{
-				section = std::stoi(num);
 				int value = 0;
 				if (text[i][0] != ' ' && text[i][0] != ';')
 				{
@@ -94,28 +88,37 @@ INI_Parser::INI_Parser(std::string file)
 				}
 			}
 		}
+		
 	}
 }
 
 template<typename T>
-T INI_Parser::get_value(int section)
+T INI_Parser::get_value(std::string section, std::string value)
 {
 	try
 	{
 		T result;
-		for (int i = 0; i < answers[section].size(); ++i)
+		std::string answer;
+		for (int i = 0; i < answers[section_in(section)].size(); ++i)
 		{
-			auto s = is_T(answers[section][i].second);
-			if (std::is_same<typeid(s), T>::result)
+			if (answers[section_in(section)][i].first == value)
 			{
-				result = s;
-				break;
+				answer = answers[section_in(section)][i].second;
 			}
 		}
-		return result;
+		if (std::is_same<int, T>)
+		{
+			result = std::stoi(answer);
+		}
+		else if (std::is_same<double, T>) {
+			result = std::stod(answer);
+		}
+		else if (std::is_same<std::string, T>) {
+			result = answer;
+		}
 	}
-	catch (const std::invalid_argument&)
+	catch
 	{
-		std::runtime_error("We can't find value with this type in this section");
+		std::cout << "Type of value doesn't match type which you entered or type doesn't exist"
 	}
 }

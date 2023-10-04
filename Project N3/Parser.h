@@ -16,9 +16,7 @@
 
 class INI_Parser
 {
-	template <class T>
-	const std::type_info& is_T(const std::string& s);
-
+	int section_in(std::string str);
 	std::vector<std::vector<std::pair<std::string, std::string>>> answers;
 public:
 	INI_Parser(std::string file);
@@ -28,5 +26,5 @@ public:
 	void cut_out(std::string& str);
 
 	template<class T>
-	T get_value(int section);
+	T get_value(std::string section, std::string value);
 };

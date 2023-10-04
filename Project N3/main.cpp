@@ -3,8 +3,9 @@
 
 int main()
 {
+	setlocale(LC_ALL, "Russian");
 	INI_Parser parser("filename.txt");
-	//auto value = parser.get_value<std::string>(4);
+	//auto value = parser.get_value<int>("Section2", "var1");
 	//std::cout << value;
 	return 0;
 }
