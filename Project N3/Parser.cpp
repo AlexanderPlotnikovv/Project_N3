@@ -1,36 +1,5 @@
 #include "Parser.h"
 
-template<typename T>
-T INI_Parser::get_value(std::string section, std::string value)
-{
-	try
-	{
-		T result;
-		std::string answer;
-		for (int i = 0; i < answers[section_in(section)].size(); ++i)
-		{
-			if (answers[section_in(section)][i].first == value)
-			{
-				answer = answers[section_in(section)][i].second;
-			}
-		}
-		if (std::is_same<int, T>)
-		{
-			result = std::stoi(answer);
-		}
-		else if (std::is_same<double, T>) {
-			result = std::stod(answer);
-		}
-		else if (std::is_same<std::string, T>) {
-			result = answer;
-		}
-	}
-	catch
-	{
-		std::cout << "Type of value doesn't match type which you entered or type doesn't exist"
-	}
-}
-
 std::string INI_Parser::trim(std::string str, int i, int j)
 {
 	std::string strhelp = "";
@@ -84,8 +53,9 @@ INI_Parser::INI_Parser(std::string file)
 	else
 	{
 		std::vector <std::string> text;
-		answers.resize(100, std::vector<std::pair<std::string, std::string>>(100));
+		answers.resize(20, std::vector<std::pair<std::string, std::string>>(20));
 		std::string line;
+		std::vector<int>valuevec(20,0);
 		int section;
 		while (std::getline(File, line))
 		{
@@ -96,14 +66,6 @@ INI_Parser::INI_Parser(std::string file)
 		{
 			cut_out(text[i]);
 		}
-		for (auto elem : text) {
-			for (auto txt : elem)
-			{
-				std::cout << txt;
-			}
-			std::cout << std::endl;
-		}
-		//std::cout << static_cast<int>(text[0][0]) << std::endl;
 		for (int i = 0; i < text.size(); ++i)
 		{
 			if (text[i][0] == '[')
@@ -112,22 +74,19 @@ INI_Parser::INI_Parser(std::string file)
 			}
 			else
 			{
-				int value = 0;
 				if (text[i][0] != ' ' && text[i][0] != ';')
 				{
-					int k = 0;
 					for (int j = 0; j < text[i].size(); ++j)
 					{
 						if (text[i][j] == '=')
 						{
-							answers[section][value].first = trim(text[i], 0, j);
-							answers[section][value].second = trim(text[i], j + 1, text[i].size());
-							value++;
+							answers[section][valuevec[section]].first = trim(text[i], 0, j);
+							answers[section][valuevec[section]].second = trim(text[i], j + 1, text[i].size());
+							valuevec[section]++;
 						}
 					}
 				}
 			}
 		}
-		
 	}
 }

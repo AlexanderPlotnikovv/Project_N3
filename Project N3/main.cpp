@@ -4,7 +4,7 @@
 int main()
 {
 	INI_Parser parser("filename.txt");
-	auto value = parser.get_value<int>("Section2", "var1");
+	auto value = parser.get_value<int>("section2", "var1");
 	std::cout << value;
 	return 0;
 }
