@@ -18,6 +18,7 @@ public:
     template<class T>
     T get_value(std::string section, std::string value)
     {
+        static_assert(sizeof(T) > 0, "not implemented type for get_value");
         try
         {
             T result;
@@ -43,7 +44,7 @@ public:
         }
         catch (const std::exception&)
         {
-            throw std::runtime_error("Type of value can't ve given to your type");
+            throw std::runtime_error("Type of value can't be given to your type");
         }
     }
     template<>

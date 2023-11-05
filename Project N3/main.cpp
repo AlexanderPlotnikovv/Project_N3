@@ -1,10 +1,18 @@
 ﻿#include <iostream>
 #include "Parser.h"
+#include <iomanip>
 
 int main()
 {
 	INI_Parser parser("filename.txt");
-	auto value = parser.get_value<int>("section2", "var1");
-	std::cout << value;
+	auto value = parser.get_value<double>("section1", "var1");
+	if (typeid(value) == typeid(double) && static_cast<int>(value) == value)
+	{
+		std::cout << std::fixed << std::setprecision(1) << value;
+	}
+	else
+	{
+		std::cout << value;
+	}
 	return 0;
 }
