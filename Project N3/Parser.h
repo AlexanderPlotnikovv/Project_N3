@@ -31,7 +31,6 @@ public:
                     break;
                 }
             }
-
             if (std::is_same<T, int>::value)
             {
                 result = std::stoi(answer);
